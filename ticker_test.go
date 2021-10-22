@@ -24,6 +24,7 @@ func TestTicker(t *testing.T) {
 		case data := <-tickstop:
 			if data {
 				fmt.Println("Done")
+				close(tickstop)
 				t.FailNow()
 			}
 		}
